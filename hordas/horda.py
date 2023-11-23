@@ -34,8 +34,8 @@ class HordasSample: # заполнять физическую инфу о хор
         return hordas
 
     def _create_horda(self):
-        u1 = randint(1, len(self.signal))
-        u2 = randint(1, len(self.signal))
+        u1 = randint(1, len(self.signal)-1)
+        u2 = randint(1, len(self.signal)-1)
         v1 =self.signal[u1]
         v2 = self.signal[u2]
 
@@ -44,6 +44,9 @@ class HordasSample: # заполнять физическую инфу о хор
         abs_err = interpolator.get_abs_error(self.signal)
         horda = Horda(u1, u2, v1, v2, abs_err)
         return horda
+
+    def get_hordas(self):
+        return self.hordas
 
 
 

@@ -71,8 +71,8 @@ class Interpolator:
         for i in range(len(signal)):
             signal_val = signal[i]
             predicion_val = prediction[i]
-            abs_err = abs(signal_val - predicion_val)
-            abs_err += abs_err
+            err = abs(signal_val - predicion_val)
+            abs_err += err
         return abs_err
 
 
