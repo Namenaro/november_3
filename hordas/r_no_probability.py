@@ -1,7 +1,7 @@
 from horda import HordasSample, Horda
 
 
-class RNoProbability: # нормируем сигмы через средние. Все параметры нормируются через свое абсолютное среднее (так можно лишь раздельно каждый)
+class RNoProbability: # нормируем сигмы через средние. Все параметры нормируются через свое абсолютное среднее (раздельно каждый)
     def __init__(self, hordas_sample, signal):
         self.signal = signal
         self.hordas_sample = hordas_sample
@@ -62,7 +62,8 @@ class RNoProbability: # нормируем сигмы через средние.
         LOG_DICT["sigma_v"] = sigma_v
 
         # TODO можно sigma_redaction = сумма сигм по всем параметрам / колво параметров.
-        # Тогда редакция это по сути выигрыш на символ, т.е. оно становится соразмерно  величине sigma_err
+        #Тогда редакция это по сути выигрыш на символ, т.е. оно становится соразмерно  величине sigma_err
 
         return r
 
+ 

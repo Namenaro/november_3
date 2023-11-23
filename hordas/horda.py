@@ -1,3 +1,7 @@
+from interpolation1d import Interpolator
+
+from random import randint
+
 class Horda: # физическая инфа о хорда
     def __init__(self, u1, u2, v1,v2, abs_err):
         self.u1 = u1
@@ -30,10 +34,15 @@ class HordasSample: # заполнять физическую инфу о хор
         return hordas
 
     def _create_horda(self):
-        u1 =
-        u2 =
+        u1 = randint(1, len(self.signal))
+        u2 = randint(1, len(self.signal))
         v1 =self.signal[u1]
-        horda = Horda(u1, u2, v1,v2, abs_err)
+        v2 = self.signal[u2]
+
+        interpolator = Interpolator(signal_len=len(self.signal))
+        interpolator.add_new_segment(index1=u1, v1=v1, index2=u2, v2=v2, name1='1', name2='2')
+        abs_err = interpolator.get_abs_error(self.signal)
+        horda = Horda(u1, u2, v1, v2, abs_err)
         return horda
 
 
